@@ -8,8 +8,13 @@ export default function Navbar() {
   let location = false;
   let [locationdropdown, setlocationdropdown] = useState(false);
   return (
+    <>
+    
     <div className="h-15  shadow-2xl flex justify-center items-center">
-      <header className="w-8/10 h-8/10 border-1 box-border p-1 flex items-center justify-between">
+      <header
+        className="w-9/10 h-8/10 border-1 box-border  flex items-center justify-between relative "
+        style={{ padding: "10px" }}
+      >
         <div className="flex items-center gap-5">
           <NavLink to={"/"}>
             <h1 className="font-bold">
@@ -28,7 +33,7 @@ export default function Navbar() {
             ></RxCaretDown>
           </div>
           {locationdropdown && (
-            <div className="h-30 w-60 border-2 bg-amber-200 fixed left-64 top-12 flex flex-col justify-center items-center box-border p-5 rounded-2xl">
+            <div className="h-30 w-60 border-2 bg-amber-200 fixed  z-5 left-64 top-12 flex flex-col justify-center items-center box-border p-5 rounded-2xl">
               <button
                 className="absolute top-2 right-2  border-2 w-4 h-7 bg-red-500"
                 onClick={() => setlocationdropdown(false)}
@@ -51,7 +56,12 @@ export default function Navbar() {
           >
             <h1>Home</h1>
           </NavLink>
-          <NavLink to={"/product"}>
+          <NavLink
+            to={"/product"}
+            className={({ isActive }) =>
+              `${isActive && "border-b-red-600 border-b-4"} cursor-pointer`
+            }
+          >
             <h1>Products</h1>
           </NavLink>
           <NavLink
@@ -72,14 +82,15 @@ export default function Navbar() {
           </NavLink>
           <NavLink to={"cart"}>
             <h1>
-              <FaCartPlus className="inline text-2xl" />
-              <sup className=" rounded-full bg-red-600 p-1 text-[10px] size- ">
+              <FaCartPlus className="inline text-3xl " />
+              <p className="absolute  top-0 right-0 rounded-full text-[15px] bg-red-500 text-white size-5 text-center ">
                 0
-              </sup>
+              </p>
             </h1>
           </NavLink>
         </div>
       </header>
     </div>
+    </>
   );
 }
