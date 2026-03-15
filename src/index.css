@@ -8,6 +8,7 @@ background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 63, 121, 0.88) 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 .button-bg{
   background: #963ab4;
@@ -19,4 +20,20 @@ background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 23
 }
 .overlay{
    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.product{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  row-gap: 8px;
+  column-gap: 2px;
+}
+.dataitem:hover{
+box-shadow: 2px 2px ;
+background-color: antiquewhite;
+
+transform: scale(1.05);
+transition-property: transfrom;
+transition-duration: 2s;
+transition-timing-function: linear;
 }
