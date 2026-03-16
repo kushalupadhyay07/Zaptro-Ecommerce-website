@@ -37,3 +37,6 @@ transition-property: transfrom;
 transition-duration: 2s;
 transition-timing-function: linear;
 }
+input{
+  accent-color: red;
+}

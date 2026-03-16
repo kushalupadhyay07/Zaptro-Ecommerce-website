@@ -8,8 +8,7 @@ export default function Product() {
   return (
     <>
       <ContextProvider>
-        <Loader></Loader>
-
+        
         <div className="flex border-2 justify-center ">
           <div className="w-8/10 border-1 ">
             <Productsitem className="w-7/10"></Productsitem>
