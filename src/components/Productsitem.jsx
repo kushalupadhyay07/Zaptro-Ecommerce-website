@@ -172,16 +172,19 @@ export default function Productsitem() {
         >
           Prev
         </button>
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            className="border w-10 cursor-pointer"
-            onClick={() => changepage(i + 1)}
-            style={{ backgroundColor: currentpage === i + 1 ? "red" : "" }}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {Array.from({ length: totalPages }, (_, i) => {
+          return (
+            <button
+              key={i}
+              className="border w-10 cursor-pointer"
+              onClick={() => changepage(i + 1)}
+              style={{ backgroundColor: currentpage === i + 1 ? "red" : "" }}
+            >
+              {i + 1}
+            </button>
+          );
+        })}
+
         <button
           className="border w-10 cursor-pointer"
           disabled={currentpage === totalPages}
