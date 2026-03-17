@@ -6,6 +6,8 @@ import About from "./websitepages/About";
 import Cart from "./websitepages/Cart";
 import Navbar from "./components/Navbar";
 import { use, useEffect, useState } from "react";
+import SingleProductpage from "./websitepages/SingleProductpage";
+
 
 function App() {
   // let [userlocation ,setuserlocation]=useState({});
@@ -32,6 +34,8 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/cart" element={<Cart></Cart>}></Route>
+        <Route path="/SingleProduct" element={<SingleProductpage></SingleProductpage>}></Route>
+        
       </Routes>
     </BrowserRouter>
   );
