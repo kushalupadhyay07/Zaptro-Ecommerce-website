@@ -7,6 +7,7 @@ import Cart from "./websitepages/Cart";
 import Navbar from "./components/Navbar";
 import { use, useEffect, useState } from "react";
 import SingleProductpage from "./websitepages/SingleProductpage";
+import ContextProvider from "../store/DataContext";
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
   // console.log(userlocation)
 
   return (
-    <BrowserRouter>
+   <ContextProvider>
+     <BrowserRouter>
      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -38,6 +40,8 @@ function App() {
         
       </Routes>
     </BrowserRouter>
+   </ContextProvider>
+
   );
 }
 

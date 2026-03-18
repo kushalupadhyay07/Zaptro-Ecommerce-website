@@ -7,14 +7,14 @@ import Loader from "../components/Loader";
 export default function Product() {
   return (
     <>
-      <ContextProvider>
+      
         
         <div className="flex border-2 justify-center ">
           <div className="w-8/10 border-1 ">
             <Productsitem className="w-7/10"></Productsitem>
           </div>
         </div>
-      </ContextProvider>
+     
       <Homefooter></Homefooter>
     </>
   );

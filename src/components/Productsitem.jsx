@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 export default function Productsitem() {
-  let { fetchdata, fetchingdata } = useContext(Context);
+  let { fetchdata, fetchingdata ,dispatch} = useContext(Context);
   useEffect(() => {
     fetchingdata();
   }, []);
@@ -45,7 +45,7 @@ export default function Productsitem() {
     setCurrentPage(page);
   };
   const totalPages = Math.ceil(productitem.length / LIMIT);
-  
+
 
   return (
     <>
@@ -155,7 +155,12 @@ export default function Productsitem() {
                   </h1>
                   <h2 className="h-2/10"> Price :- {item.price}</h2>
                   <Link to={`/SingleProduct`} state={item} className="cursor-pointer border-1 bg-amber-100">View Details</Link>
-                  <button className="flex justify-center items-center w-8/10 gap-2 border-2 bg-red-500 text-white rounded-2xl cursor-pointer">
+                  <button className="flex justify-center items-center w-8/10 gap-2 border-2 bg-red-500 text-white rounded-2xl cursor-pointer" onClick={()=>{
+                    console.log("Clicked",item);
+                    dispatch({
+                    type:"Add",
+                    payload:item
+                  })}}>
                     <FaCartPlus></FaCartPlus>
                     <h1>Add To Cart</h1>
                   </button>
