@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../store/DataContext";
+import Lottie from "lottie-react";
+import SandyLoading from "../assets/SandyLoading.json";
 
 export default function Loader() {
   let { loader } = useContext(Context);
@@ -8,7 +10,11 @@ export default function Loader() {
     <>
       {!loader && (
         <div className=" w-screen h-screen flex justify-center items-center ">
-          <img src="gifloader.gif" alt="#" className="size-40" />
+          <Lottie
+            animationData={SandyLoading}
+            loop={true}
+            style={{ height: 300 }}
+          />
         </div>
       )}
     </>
