@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 export default function Productsitem() {
-  let { fetchdata, fetchingdata ,dispatch} = useContext(Context);
+  let { fetchdata, fetchingdata, dispatch } = useContext(Context);
   useEffect(() => {
     fetchingdata();
   }, []);
@@ -45,8 +45,6 @@ export default function Productsitem() {
     setCurrentPage(page);
   };
   const totalPages = Math.ceil(productitem.length / LIMIT);
-  
-
 
   return (
     <>
@@ -141,7 +139,7 @@ export default function Productsitem() {
               return (
                 <div
                   className="w-40 h-50 border-2 box-border p-2 flex flex-col items-center relative  dataitem rounded-2xl cursor-pointer"
-                  style={{ marginTop: "25px" } }
+                  style={{ marginTop: "25px" }}
                 >
                   <img
                     src={item.images}
@@ -155,22 +153,30 @@ export default function Productsitem() {
                     {item.title}
                   </h1>
                   <h2 className="h-2/10"> Price :- {item.price}</h2>
-                  <Link to={`/SingleProduct`} state={item} className="cursor-pointer border-1 bg-amber-100">View Details</Link>
-                  <button className="flex justify-center items-center w-8/10 gap-2 border-2 bg-red-500 text-white rounded-2xl cursor-pointer" onClick={()=>{
-                    console.log("Clicked",item);
-                    dispatch({
-                    type:"Add",
-                    payload:{
-                      id:Date.now() + Math.floor(Math.random() * 1000),
-                      title:item.title,
-                      images:item.images,
-                      description:item.description,
-                      category:item.category,
-                      price:item.price,
-                    }
-                  })
-                 
-                  }}>
+                  <Link
+                    to={`/SingleProduct`}
+                    state={item}
+                    className="cursor-pointer border-1 bg-amber-100"
+                  >
+                    View Details
+                  </Link>
+                  <button
+                    className="flex justify-center items-center w-8/10 gap-2 border-2 bg-red-500 text-white rounded-2xl cursor-pointer"
+                    onClick={() => {
+                      console.log("Clicked", item);
+                      dispatch({
+                        type: "Add",
+                        payload: {
+                          id: Date.now() + Math.floor(Math.random() * 1000),
+                          title: item.title,
+                          images: item.images,
+                          description: item.description,
+                          category: item.category,
+                          price: item.price,
+                        },
+                      });
+                    }}
+                  >
                     <FaCartPlus></FaCartPlus>
                     <h1>Add To Cart</h1>
                   </button>

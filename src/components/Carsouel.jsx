@@ -72,9 +72,9 @@ export default function Carsouel() {
                       Price :-{item.price}
                     </p>
                     <Link to="/product">
-                    <button className="border-2 rounded-2xl text-xl p-1 text-white button-bg cursor-pointer">
-                      Shop Now{" "}
-                    </button>
+                      <button className="border-2 rounded-2xl text-xl p-1 text-white button-bg cursor-pointer">
+                        Shop Now{" "}
+                      </button>
                     </Link>
                   </div>
                 </div>
