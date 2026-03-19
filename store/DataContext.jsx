@@ -1,5 +1,11 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
 export let Context = createContext(null);
 function ContextProvider({ children }) {
@@ -11,30 +17,35 @@ function ContextProvider({ children }) {
     setloader(true);
   }
 
-  function reducer(cartitem,action){
-    let newcartitem=cartitem
-    if(action.type==="Add"){
-        newcartitem=[...newcartitem,action.payload];
+  function reducer(cartitem, action) {
+    let newcartitem = cartitem;
+    if (action.type === "Add") {
+      newcartitem = [...newcartitem, action.payload];
+    } else if (action.type === "delete") {
+      newcartitem = newcartitem.filter((item) => item.id != action.payload.id);
     }
-    else if(action.type==="delete"){
-       newcartitem= newcartitem.filter((item)=>item!=action.payload)
-    }
-   
-    return newcartitem
+
+    return newcartitem;
   }
-  let [cartitem,dispatch]=useReducer(reducer,[]);
-    let [cartno,setcartno]=useState(0)
-    console.log(cartno);
-  useEffect(()=>{
-    setcartno(cartitem.length)
-  },[cartitem])
-
-
+  let [cartitem, dispatch] = useReducer(reducer, []);
+  let [cartno, setcartno] = useState(0);
+  console.log(cartno);
+  useEffect(() => {
+    setcartno(cartitem.length);
+  }, [cartitem]);
 
   return (
     <>
       <Context.Provider
-        value={{ fetchdata, fetchingdata, setfetchdata, loader,cartitem,dispatch,cartno }}
+        value={{
+          fetchdata,
+          fetchingdata,
+          setfetchdata,
+          loader,
+          cartitem,
+          dispatch,
+          cartno,
+        }}
       >
         {children}
       </Context.Provider>

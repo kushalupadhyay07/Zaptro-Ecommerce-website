@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Carsouel() {
   let { fetchingdata, fetchdata, setfetchdata } = useContext(Context);
@@ -70,9 +71,11 @@ export default function Carsouel() {
                       {" "}
                       Price :-{item.price}
                     </p>
-                    <button className="border-2 rounded-2xl text-xl p-1 text-white button-bg">
+                    <Link to="/product">
+                    <button className="border-2 rounded-2xl text-xl p-1 text-white button-bg cursor-pointer">
                       Shop Now{" "}
                     </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="h-8/10 w-4/10  box-border   ">

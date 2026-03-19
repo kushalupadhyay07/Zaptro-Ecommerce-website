@@ -45,6 +45,7 @@ export default function Productsitem() {
     setCurrentPage(page);
   };
   const totalPages = Math.ceil(productitem.length / LIMIT);
+  
 
 
   return (
@@ -159,8 +160,17 @@ export default function Productsitem() {
                     console.log("Clicked",item);
                     dispatch({
                     type:"Add",
-                    payload:item
-                  })}}>
+                    payload:{
+                      id:Date.now() + Math.floor(Math.random() * 1000),
+                      title:item.title,
+                      images:item.images,
+                      description:item.description,
+                      category:item.category,
+                      price:item.price,
+                    }
+                  })
+                 
+                  }}>
                     <FaCartPlus></FaCartPlus>
                     <h1>Add To Cart</h1>
                   </button>
