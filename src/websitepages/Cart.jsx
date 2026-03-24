@@ -19,7 +19,7 @@ export default function Cart() {
         )}
         {cartitem.map((data, index) => {
           return (
-            <div className="w-9/10  border-1 flex ">
+            <div className="w-9/10   flex ">
               <div className="w-2/10 bg-amber-200">
                 <img src={data.images} alt="" className="w-full h-full" />
               </div>
